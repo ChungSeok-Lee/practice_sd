@@ -16,11 +16,11 @@ class xy4():
     return result
 
 def home(request):    
-    NUM_X = request.GET['xx']
-    NUM_Y = request.GET['yy']
-    with open("pickle_LCS.pickle", 'rb') as pc:
-        wt = pickle.load(pc)
-    result = wt.getPredict4(NUM_X, NUM_Y)
+    NUM_X = int(request.GET['xx'])
+    NUM_Y = int(request.GET['yy'])
+
+    tem = xy4()
+    result = tem.getPredict4(NUM_X,NUM_Y)
     requestDict = {'result_response': result}
     return JsonResponse(requestDict)
 
